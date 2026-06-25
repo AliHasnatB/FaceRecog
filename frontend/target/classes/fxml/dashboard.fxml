@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.backex.faceox.controller.DashboardController"
+            prefWidth="1280" prefHeight="800">
+
+    <!-- ── Sidebar ──────────────────────────────────────────── -->
+    <left>
+        <VBox styleClass="sidebar" spacing="2">
+            <padding><Insets top="0" right="12" bottom="16" left="12"/></padding>
+
+            <!-- Brand -->
+            <VBox style="-fx-padding: 20 8 16 8; -fx-border-color: rgba(255,255,255,0.08); -fx-border-width: 0 0 1 0;">
+                <Label text="⬡ FaceOx" style="-fx-text-fill: #4f8ef7; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+                <Label text="Attendance System" style="-fx-text-fill: #6e7681; -fx-font-size: 11px;"/>
+            </VBox>
+
+            <!-- User pill -->
+            <VBox style="-fx-padding: 12 8 8 8;">
+                <HBox alignment="CENTER_LEFT" spacing="10"
+                      style="-fx-background-color: #21293a; -fx-background-radius: 10; -fx-padding: 10 12;">
+                    <Label fx:id="avatarLabel"
+                           style="-fx-background-color: #4f8ef7; -fx-background-radius: 20;
+                                  -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13px;
+                                  -fx-min-width: 34; -fx-min-height: 34; -fx-alignment: center;"
+                           text="U"/>
+                    <VBox spacing="2">
+                        <Label fx:id="userNameLabel" text="User"
+                               style="-fx-text-fill: #e6edf3; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                        <Label fx:id="userRoleLabel" text="STUDENT"
+                               style="-fx-text-fill: #6e7681; -fx-font-size: 10px;"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <!-- MAIN navigation -->
+            <Label text="MAIN" styleClass="nav-section-label"/>
+
+            <Button fx:id="navHome"       text="  Dashboard"    styleClass="nav-btn"
+                    onAction="#showHome"   maxWidth="10000"/>
+            <Button fx:id="navAttendance" text="  Attendance"   styleClass="nav-btn"
+                    onAction="#showAttendance" maxWidth="10000"/>
+            <Button fx:id="navClasses"    text="  My Classes"   styleClass="nav-btn"
+                    onAction="#showClasses"    maxWidth="10000"/>
+
+            <!-- ACADEMIC -->
+            <Label text="ACADEMIC" styleClass="nav-section-label"/>
+
+            <Button fx:id="navStudents"   text="  Students"     styleClass="nav-btn"
+                    onAction="#showStudents"   maxWidth="10000"/>
+            <Button fx:id="navTeachers"   text="  Teachers"     styleClass="nav-btn"
+                    onAction="#showTeachers"   maxWidth="10000"/>
+            <Button fx:id="navLeaves"     text="  Leaves"       styleClass="nav-btn"
+                    onAction="#showLeaves"     maxWidth="10000"/>
+
+            <!-- FINANCE -->
+            <Label text="FINANCE" styleClass="nav-section-label"/>
+
+            <Button fx:id="navFees"       text="  Fees"         styleClass="nav-btn"
+                    onAction="#showFees"       maxWidth="10000"/>
+
+            <!-- Spacer -->
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- Logout -->
+            <Button text="  Logout" styleClass="btn-danger"
+                    onAction="#handleLogout" maxWidth="10000"
+                    style="-fx-font-size: 12px; -fx-padding: 8 16;"/>
+        </VBox>
+    </left>
+
+    <!-- ── Main area ─────────────────────────────────────────── -->
+    <center>
+        <VBox>
+            <!-- Top bar -->
+            <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="12">
+                <Label fx:id="pageTitle" text="Dashboard" styleClass="topbar-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="topbarRole" text="STUDENT" styleClass="role-badge student"/>
+                <Label fx:id="topbarUser" text="Welcome" styleClass="user-pill"/>
+            </HBox>
+
+            <!-- Content pane — swapped by nav buttons -->
+            <StackPane fx:id="contentPane" VBox.vgrow="ALWAYS"
+                       style="-fx-background-color: #0d1117;"/>
+        </VBox>
+    </center>
+</BorderPane>

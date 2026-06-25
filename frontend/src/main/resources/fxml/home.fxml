@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.backex.faceox.controller.HomeController"
+            fitToWidth="true"
+            styleClass="scroll-pane">
+    <VBox spacing="24" style="-fx-padding: 28;">
+
+        <!-- Page header -->
+        <VBox spacing="4">
+            <Label fx:id="welcomeLabel" text="Good morning, User!" styleClass="page-title"/>
+            <Label text="Here's what's happening today" styleClass="page-subtitle"/>
+        </VBox>
+
+        <!-- ── Stat Cards ─────────────────────────────────────── -->
+        <HBox spacing="16">
+            <!-- Total Students -->
+            <HBox styleClass="stat-card" spacing="16" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <StackPane styleClass="stat-icon-bg blue" minWidth="48" minHeight="48">
+                    <Label text="👥" style="-fx-font-size: 20px;"/>
+                </StackPane>
+                <VBox spacing="2">
+                    <Label fx:id="totalStudentsLabel" text="—" styleClass="stat-value"/>
+                    <Label text="Total Students" styleClass="stat-label"/>
+                </VBox>
+            </HBox>
+
+            <!-- Today Present -->
+            <HBox styleClass="stat-card" spacing="16" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <StackPane styleClass="stat-icon-bg green" minWidth="48" minHeight="48">
+                    <Label text="✅" style="-fx-font-size: 20px;"/>
+                </StackPane>
+                <VBox spacing="2">
+                    <Label fx:id="presentTodayLabel" text="—" styleClass="stat-value"/>
+                    <Label text="Present Today" styleClass="stat-label"/>
+                </VBox>
+            </HBox>
+
+            <!-- Pending Leaves -->
+            <HBox styleClass="stat-card" spacing="16" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <StackPane styleClass="stat-icon-bg orange" minWidth="48" minHeight="48">
+                    <Label text="📋" style="-fx-font-size: 20px;"/>
+                </StackPane>
+                <VBox spacing="2">
+                    <Label fx:id="pendingLeavesLabel" text="—" styleClass="stat-value"/>
+                    <Label text="Pending Leaves" styleClass="stat-label"/>
+                </VBox>
+            </HBox>
+
+            <!-- Active Classes -->
+            <HBox styleClass="stat-card" spacing="16" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <StackPane styleClass="stat-icon-bg red" minWidth="48" minHeight="48">
+                    <Label text="📚" style="-fx-font-size: 20px;"/>
+                </StackPane>
+                <VBox spacing="2">
+                    <Label fx:id="activeClassesLabel" text="—" styleClass="stat-value"/>
+                    <Label text="Active Classes" styleClass="stat-label"/>
+                </VBox>
+            </HBox>
+        </HBox>
+
+        <!-- ── Bottom row ──────────────────────────────────────── -->
+        <HBox spacing="16">
+
+            <!-- Today's Attendance table -->
+            <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="12">
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label text="Today's Attendance" styleClass="card-title" HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="attendanceDateLabel" text=""
+                           style="-fx-text-fill: #6e7681; -fx-font-size: 11px;"/>
+                </HBox>
+
+                <TableView fx:id="todayTable" prefHeight="300">
+                    <columns>
+                        <TableColumn fx:id="colName"   text="Name"       prefWidth="180"/>
+                        <TableColumn fx:id="colSubject" text="Subject"   prefWidth="140"/>
+                        <TableColumn fx:id="colTime"   text="Time"       prefWidth="100"/>
+                        <TableColumn fx:id="colSim"    text="Match %"    prefWidth="80"/>
+                        <TableColumn fx:id="colStatus" text="Status"     prefWidth="90"/>
+                    </columns>
+                    <placeholder>
+                        <Label text="No attendance recorded yet today"
+                               style="-fx-text-fill: #6e7681;"/>
+                    </placeholder>
+                </TableView>
+            </VBox>
+
+            <!-- Student attendance breakdown (for student role) / Quick stats -->
+            <VBox styleClass="card" minWidth="260" maxWidth="300" spacing="16">
+                <Label text="My Attendance" styleClass="card-title"/>
+
+                <!-- Ring-style percentage -->
+                <VBox alignment="CENTER" spacing="4"
+                      style="-fx-background-color: #21293a; -fx-background-radius: 12; -fx-padding: 20;">
+                    <Label fx:id="attendancePctLabel" text="—%"
+                           style="-fx-text-fill: #4f8ef7; -fx-font-size: 36px; -fx-font-weight: bold;"/>
+                    <Label text="Attendance Rate" style="-fx-text-fill: #6e7681; -fx-font-size: 11px;"/>
+                </VBox>
+
+                <VBox spacing="8">
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label text="●" style="-fx-text-fill: #3fb950;"/>
+                        <Label text="Present Days" style="-fx-text-fill: #8b949e; -fx-font-size: 12px;" HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="presentDaysLabel" text="—"
+                               style="-fx-text-fill: #e6edf3; -fx-font-weight: bold; -fx-font-size: 12px;"/>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label text="●" style="-fx-text-fill: #f85149;"/>
+                        <Label text="Absent Days"  style="-fx-text-fill: #8b949e; -fx-font-size: 12px;" HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="absentDaysLabel" text="—"
+                               style="-fx-text-fill: #e6edf3; -fx-font-weight: bold; -fx-font-size: 12px;"/>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label text="●" style="-fx-text-fill: #e3b341;"/>
+                        <Label text="Total Leaves" style="-fx-text-fill: #8b949e; -fx-font-size: 12px;" HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="leaveDaysLabel" text="—"
+                               style="-fx-text-fill: #e6edf3; -fx-font-weight: bold; -fx-font-size: 12px;"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Fee summary -->
+                <Separator/>
+                <Label text="Fee Summary" styleClass="card-title"/>
+                <VBox spacing="6">
+                    <HBox alignment="CENTER_LEFT">
+                        <Label text="Total Fees"   style="-fx-text-fill: #8b949e; -fx-font-size: 12px;" HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="totalFeesLabel" text="—"
+                               style="-fx-text-fill: #e6edf3; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT">
+                        <Label text="Paid"         style="-fx-text-fill: #8b949e; -fx-font-size: 12px;" HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="paidFeesLabel" text="—"
+                               style="-fx-text-fill: #3fb950; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT">
+                        <Label text="Pending"      style="-fx-text-fill: #8b949e; -fx-font-size: 12px;" HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="pendingFeesLabel" text="—"
+                               style="-fx-text-fill: #f85149; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </HBox>
+    </VBox>
+</ScrollPane>

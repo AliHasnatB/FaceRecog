@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.backex.faceox.controller.AttendanceViewController"
+      spacing="20" style="-fx-padding: 28;">
+
+    <!-- Header -->
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <VBox HBox.hgrow="ALWAYS">
+            <Label text="Attendance Records" styleClass="page-title"/>
+            <Label text="View and manage attendance data" styleClass="page-subtitle"/>
+        </VBox>
+        <DatePicker fx:id="datePicker" promptText="Filter by date"/>
+        <Button text="Filter" styleClass="btn-primary" onAction="#handleFilter"/>
+        <Button text="All Records" styleClass="btn-ghost" onAction="#loadAll"/>
+        <Button fx:id="exportBtn" text="Export CSV" styleClass="btn-ghost" onAction="#handleExport"/>
+    </HBox>
+
+    <!-- Summary bar -->
+    <HBox spacing="12">
+        <Label fx:id="summaryLabel" text="Loading…"
+               style="-fx-text-fill: #8b949e; -fx-font-size: 12px;"/>
+    </HBox>
+
+    <!-- Table -->
+    <TableView fx:id="attendanceTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colFull"    text="Full Name"    prefWidth="180"/>
+            <TableColumn fx:id="colSubj"    text="Subject"      prefWidth="150"/>
+            <TableColumn fx:id="colDate"    text="Date"         prefWidth="110"/>
+            <TableColumn fx:id="colTime"    text="Time"         prefWidth="100"/>
+            <TableColumn fx:id="colMatch"   text="Match %"      prefWidth="90"/>
+            <TableColumn fx:id="colStatus"  text="Status"       prefWidth="100"/>
+        </columns>
+        <placeholder>
+            <Label text="No attendance records found"
+                   style="-fx-text-fill: #6e7681;"/>
+        </placeholder>
+    </TableView>
+</VBox>

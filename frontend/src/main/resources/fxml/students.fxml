@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.backex.faceox.controller.StudentsViewController"
+      spacing="20" style="-fx-padding: 28;">
+
+    <!-- Header -->
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <VBox HBox.hgrow="ALWAYS">
+            <Label text="Students" styleClass="page-title"/>
+            <Label text="Manage registered students" styleClass="page-subtitle"/>
+        </VBox>
+        <TextField fx:id="searchField" promptText="🔍  Search students…"
+                   prefWidth="220" onKeyReleased="#handleSearch"/>
+        <Button fx:id="addStudentBtn" text="+ Add Student"
+                styleClass="btn-primary" onAction="#showRegisterDialog"/>
+    </HBox>
+
+    <!-- Table -->
+    <TableView fx:id="studentsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId"         text="#"            prefWidth="50"/>
+            <TableColumn fx:id="colName"        text="Full Name"    prefWidth="180"/>
+            <TableColumn fx:id="colRoll"        text="Roll No."     prefWidth="110"/>
+            <TableColumn fx:id="colEmail"       text="Email"        prefWidth="180"/>
+            <TableColumn fx:id="colDept"        text="Department"   prefWidth="140"/>
+            <TableColumn fx:id="colSem"         text="Semester"     prefWidth="90"/>
+            <TableColumn fx:id="colActions"     text="Actions"      prefWidth="150"/>
+        </columns>
+        <placeholder>
+            <Label text="No students found" style="-fx-text-fill: #6e7681;"/>
+        </placeholder>
+    </TableView>
+</VBox>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.backex.faceox.controller.FeesViewController"
+      spacing="20" style="-fx-padding: 28;">
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <VBox HBox.hgrow="ALWAYS">
+            <Label text="Fee Management" styleClass="page-title"/>
+            <Label text="Track fee payments and balances" styleClass="page-subtitle"/>
+        </VBox>
+        <Button fx:id="addFeeBtn" text="+ Add Fee Record"
+                styleClass="btn-primary" onAction="#showAddFeeDialog"/>
+    </HBox>
+
+    <!-- Fee summary cards (shown for students) -->
+    <HBox fx:id="feeSummaryBar" spacing="16">
+        <HBox styleClass="stat-card" spacing="16" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+            <StackPane styleClass="stat-icon-bg blue" minWidth="44" minHeight="44">
+                <Label text="💰" style="-fx-font-size: 18px;"/>
+            </StackPane>
+            <VBox spacing="2">
+                <Label fx:id="totalFeeLabel" text="—" styleClass="stat-value"
+                       style="-fx-font-size: 22px;"/>
+                <Label text="Total Fees" styleClass="stat-label"/>
+            </VBox>
+        </HBox>
+        <HBox styleClass="stat-card" spacing="16" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+            <StackPane styleClass="stat-icon-bg green" minWidth="44" minHeight="44">
+                <Label text="✅" style="-fx-font-size: 18px;"/>
+            </StackPane>
+            <VBox spacing="2">
+                <Label fx:id="paidFeeLabel" text="—" styleClass="stat-value"
+                       style="-fx-font-size: 22px;"/>
+                <Label text="Paid" styleClass="stat-label"/>
+            </VBox>
+        </HBox>
+        <HBox styleClass="stat-card" spacing="16" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+            <StackPane styleClass="stat-icon-bg red" minWidth="44" minHeight="44">
+                <Label text="⏳" style="-fx-font-size: 18px;"/>
+            </StackPane>
+            <VBox spacing="2">
+                <Label fx:id="pendingFeeLabel" text="—" styleClass="stat-value"
+                       style="-fx-font-size: 22px;"/>
+                <Label text="Pending" styleClass="stat-label"/>
+            </VBox>
+        </HBox>
+    </HBox>
+
+    <TableView fx:id="feesTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colStudent"  text="Student"     prefWidth="180"/>
+            <TableColumn fx:id="colSemester" text="Semester"    prefWidth="110"/>
+            <TableColumn fx:id="colTotal"    text="Total (PKR)" prefWidth="120"/>
+            <TableColumn fx:id="colPaid"     text="Paid (PKR)"  prefWidth="120"/>
+            <TableColumn fx:id="colPending"  text="Due (PKR)"   prefWidth="120"/>
+            <TableColumn fx:id="colDueDate"  text="Due Date"    prefWidth="110"/>
+            <TableColumn fx:id="colStatus"   text="Status"      prefWidth="100"/>
+            <TableColumn fx:id="colActions"  text="Actions"     prefWidth="120"/>
+        </columns>
+        <placeholder>
+            <Label text="No fee records found" style="-fx-text-fill: #6e7681;"/>
+        </placeholder>
+    </TableView>
+</VBox>

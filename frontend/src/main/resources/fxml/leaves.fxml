@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.backex.faceox.controller.LeavesViewController"
+      spacing="20" style="-fx-padding: 28;">
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <VBox HBox.hgrow="ALWAYS">
+            <Label text="Leave Management" styleClass="page-title"/>
+            <Label text="Apply for leaves and track their status" styleClass="page-subtitle"/>
+        </VBox>
+        <ComboBox fx:id="statusFilter" promptText="All Status" prefWidth="140"
+                  onAction="#handleStatusFilter"/>
+        <Button fx:id="applyLeaveBtn" text="+ Apply Leave"
+                styleClass="btn-primary" onAction="#showApplyDialog"/>
+    </HBox>
+
+    <!-- Leave stats bar (for students) -->
+    <HBox fx:id="leaveStatsBar" spacing="16">
+        <HBox styleClass="card" spacing="12" alignment="CENTER_LEFT" style="-fx-padding: 12 16;">
+            <Label text="Approved" style="-fx-text-fill: #6e7681; -fx-font-size: 12px;"/>
+            <Label fx:id="approvedCount" text="0"
+                   style="-fx-text-fill: #3fb950; -fx-font-weight: bold;"/>
+        </HBox>
+        <HBox styleClass="card" spacing="12" alignment="CENTER_LEFT" style="-fx-padding: 12 16;">
+            <Label text="Pending" style="-fx-text-fill: #6e7681; -fx-font-size: 12px;"/>
+            <Label fx:id="pendingCount" text="0"
+                   style="-fx-text-fill: #e3b341; -fx-font-weight: bold;"/>
+        </HBox>
+        <HBox styleClass="card" spacing="12" alignment="CENTER_LEFT" style="-fx-padding: 12 16;">
+            <Label text="Rejected" style="-fx-text-fill: #6e7681; -fx-font-size: 12px;"/>
+            <Label fx:id="rejectedCount" text="0"
+                   style="-fx-text-fill: #f85149; -fx-font-weight: bold;"/>
+        </HBox>
+    </HBox>
+
+    <TableView fx:id="leavesTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colStudent"  text="Student"     prefWidth="180"/>
+            <TableColumn fx:id="colFrom"     text="From"        prefWidth="110"/>
+            <TableColumn fx:id="colTo"       text="To"          prefWidth="110"/>
+            <TableColumn fx:id="colReason"   text="Reason"      prefWidth="250"/>
+            <TableColumn fx:id="colStatus"   text="Status"      prefWidth="110"/>
+            <TableColumn fx:id="colActions"  text="Actions"     prefWidth="150"/>
+        </columns>
+        <placeholder>
+            <Label text="No leave applications" style="-fx-text-fill: #6e7681;"/>
+        </placeholder>
+    </TableView>
+</VBox>

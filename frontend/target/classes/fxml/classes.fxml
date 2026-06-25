@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.backex.faceox.controller.ClassesViewController"
+      spacing="20" style="-fx-padding: 28;">
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <VBox HBox.hgrow="ALWAYS">
+            <Label text="Class Schedule" styleClass="page-title"/>
+            <Label text="View and manage class timetables" styleClass="page-subtitle"/>
+        </VBox>
+        <ComboBox fx:id="dayFilter" promptText="Filter by Day" prefWidth="150"
+                  onAction="#handleDayFilter"/>
+        <Button fx:id="addClassBtn" text="+ New Class"
+                styleClass="btn-primary" onAction="#showCreateDialog"/>
+    </HBox>
+
+    <TableView fx:id="classesTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colSubjectName" text="Subject"     prefWidth="180"/>
+            <TableColumn fx:id="colSubjectCode" text="Code"        prefWidth="90"/>
+            <TableColumn fx:id="colTeacher"     text="Teacher"     prefWidth="160"/>
+            <TableColumn fx:id="colDept"        text="Department"  prefWidth="140"/>
+            <TableColumn fx:id="colDay"         text="Day"         prefWidth="100"/>
+            <TableColumn fx:id="colStart"       text="Start"       prefWidth="80"/>
+            <TableColumn fx:id="colEnd"         text="End"         prefWidth="80"/>
+            <TableColumn fx:id="colRoom"        text="Room"        prefWidth="80"/>
+            <TableColumn fx:id="colSem"         text="Semester"    prefWidth="90"/>
+            <TableColumn fx:id="colActive"      text="Status"      prefWidth="80"/>
+        </columns>
+        <placeholder>
+            <Label text="No classes scheduled" style="-fx-text-fill: #6e7681;"/>
+        </placeholder>
+    </TableView>
+</VBox>

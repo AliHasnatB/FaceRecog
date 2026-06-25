@@ -1,0 +1,496 @@
+/* ═══════════════════════════════════════════════════════════════
+   FaceOx — Dark Slate Design System
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Root palette ─────────────────────────────────────────────── */
+.root {
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+
+    /* Backgrounds */
+    -bg-darkest:    #0d1117;
+    -bg-dark:       #161b22;
+    -bg-card:       #1c2230;
+    -bg-surface:    #21293a;
+    -bg-hover:      #2a3447;
+
+    /* Accent */
+    -accent:        #4f8ef7;
+    -accent-light:  #6fa3ff;
+    -accent-glow:   rgba(79,142,247,0.25);
+
+    /* Status colors */
+    -success:       #3fb950;
+    -warning:       #d29922;
+    -danger:        #f85149;
+    -info:          #58a6ff;
+
+    /* Text */
+    -text-primary:  #e6edf3;
+    -text-secondary:#8b949e;
+    -text-muted:    #6e7681;
+
+    /* Borders */
+    -border:        rgba(255,255,255,0.08);
+    -border-accent: rgba(79,142,247,0.4);
+
+    -fx-background-color: -bg-darkest;
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────── */
+.sidebar {
+    -fx-background-color: -bg-dark;
+    -fx-border-color: -border;
+    -fx-border-width: 0 1 0 0;
+    -fx-min-width: 220px;
+    -fx-max-width: 220px;
+}
+
+.sidebar-brand {
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 24 20 8 20;
+}
+
+.sidebar-subtitle {
+    -fx-text-fill: -text-muted;
+    -fx-font-size: 11px;
+    -fx-padding: 0 20 20 20;
+}
+
+.nav-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 16;
+    -fx-cursor: hand;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-max-width: 10000px;
+    -fx-graphic-text-gap: 10;
+}
+.nav-btn:hover {
+    -fx-background-color: -bg-hover;
+    -fx-text-fill: -text-primary;
+}
+.nav-btn.active {
+    -fx-background-color: -accent-glow;
+    -fx-text-fill: -accent-light;
+    -fx-border-color: -border-accent;
+    -fx-border-width: 0 0 0 3;
+}
+
+.nav-section-label {
+    -fx-text-fill: -text-muted;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 16 16 4 16;
+}
+
+/* ── Top bar ──────────────────────────────────────────────────── */
+.topbar {
+    -fx-background-color: -bg-dark;
+    -fx-border-color: -border;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 12 24;
+    -fx-min-height: 56px;
+    -fx-max-height: 56px;
+}
+
+.topbar-title {
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.user-pill {
+    -fx-background-color: -bg-surface;
+    -fx-background-radius: 20;
+    -fx-border-color: -border;
+    -fx-border-radius: 20;
+    -fx-padding: 6 14;
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 12px;
+}
+
+.role-badge {
+    -fx-background-radius: 10;
+    -fx-padding: 3 8;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+.role-badge.admin   { -fx-background-color: rgba(248,81,73,0.2);  -fx-text-fill: #f85149; }
+.role-badge.teacher { -fx-background-color: rgba(210,153,34,0.2); -fx-text-fill: #e3b341; }
+.role-badge.student { -fx-background-color: rgba(63,185,80,0.2);  -fx-text-fill: #3fb950; }
+
+/* ── Content area ─────────────────────────────────────────────── */
+.content-area {
+    -fx-background-color: -bg-darkest;
+    -fx-padding: 24;
+}
+
+.page-title {
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.page-subtitle {
+    -fx-text-fill: -text-muted;
+    -fx-font-size: 13px;
+}
+
+/* ── Stat cards ───────────────────────────────────────────────── */
+.stat-card {
+    -fx-background-color: -bg-card;
+    -fx-background-radius: 12;
+    -fx-border-color: -border;
+    -fx-border-radius: 12;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 8, 0, 0, 2);
+}
+
+.stat-value {
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.stat-label {
+    -fx-text-fill: -text-muted;
+    -fx-font-size: 12px;
+}
+
+.stat-icon-bg {
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+}
+.stat-icon-bg.blue   { -fx-background-color: rgba(79,142,247,0.15); }
+.stat-icon-bg.green  { -fx-background-color: rgba(63,185,80,0.15);  }
+.stat-icon-bg.orange { -fx-background-color: rgba(210,153,34,0.15); }
+.stat-icon-bg.red    { -fx-background-color: rgba(248,81,73,0.15);  }
+
+/* ── Cards / Panels ───────────────────────────────────────────── */
+.card {
+    -fx-background-color: -bg-card;
+    -fx-background-radius: 12;
+    -fx-border-color: -border;
+    -fx-border-radius: 12;
+    -fx-padding: 20;
+}
+
+.card-title {
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* ── Tables ───────────────────────────────────────────────────── */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: -border;
+    -fx-border-radius: 10;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: -bg-surface;
+    -fx-background-radius: 10 10 0 0;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: -text-muted;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 12;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: -text-muted;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent -border transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-text-fill: -text-secondary;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: -bg-hover;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: -accent-glow;
+    -fx-text-fill: -text-primary;
+}
+
+.table-cell {
+    -fx-text-fill: -text-secondary;
+    -fx-padding: 10 12;
+    -fx-border-color: transparent;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────── */
+.btn-primary {
+    -fx-background-color: -accent;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 9 20;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(79,142,247,0.4), 8, 0, 0, 2);
+}
+.btn-primary:hover {
+    -fx-background-color: -accent-light;
+}
+
+.btn-danger {
+    -fx-background-color: -danger;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 9 20;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+.btn-danger:hover { -fx-background-color: #ff6b63; }
+
+.btn-success {
+    -fx-background-color: -success;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 9 20;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.btn-ghost {
+    -fx-background-color: -bg-surface;
+    -fx-text-fill: -text-secondary;
+    -fx-background-radius: 8;
+    -fx-border-color: -border;
+    -fx-border-radius: 8;
+    -fx-padding: 9 20;
+    -fx-cursor: hand;
+}
+.btn-ghost:hover {
+    -fx-background-color: -bg-hover;
+    -fx-text-fill: -text-primary;
+}
+
+/* ── Forms / Inputs ───────────────────────────────────────────── */
+.text-field, .text-area, .password-field, .combo-box, .date-picker {
+    -fx-background-color: -bg-surface;
+    -fx-text-fill: -text-primary;
+    -fx-prompt-text-fill: -text-muted;
+    -fx-border-color: -border;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 9 12;
+    -fx-font-size: 13px;
+}
+.text-field:focused, .password-field:focused, .text-area:focused {
+    -fx-border-color: -accent;
+    -fx-effect: dropshadow(gaussian, -accent-glow, 6, 0, 0, 0);
+}
+
+.form-label {
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 4 0;
+}
+
+/* ── Status chips ─────────────────────────────────────────────── */
+.chip {
+    -fx-background-radius: 20;
+    -fx-padding: 3 10;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+.chip.present  { -fx-background-color: rgba(63,185,80,0.2);  -fx-text-fill: #3fb950; }
+.chip.absent   { -fx-background-color: rgba(248,81,73,0.2);  -fx-text-fill: #f85149; }
+.chip.pending  { -fx-background-color: rgba(210,153,34,0.2); -fx-text-fill: #e3b341; }
+.chip.approved { -fx-background-color: rgba(63,185,80,0.2);  -fx-text-fill: #3fb950; }
+.chip.rejected { -fx-background-color: rgba(248,81,73,0.2);  -fx-text-fill: #f85149; }
+.chip.paid     { -fx-background-color: rgba(63,185,80,0.2);  -fx-text-fill: #3fb950; }
+.chip.partial  { -fx-background-color: rgba(88,166,255,0.2); -fx-text-fill: #58a6ff; }
+.chip.overdue  { -fx-background-color: rgba(248,81,73,0.2);  -fx-text-fill: #f85149; }
+
+/* ── Login screen ─────────────────────────────────────────────── */
+.login-root {
+    -fx-background-color: -bg-darkest;
+}
+
+.login-panel {
+    -fx-background-color: -bg-card;
+    -fx-background-radius: 16;
+    -fx-border-color: -border;
+    -fx-border-radius: 16;
+    -fx-padding: 40 36;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 24, 0, 0, 8);
+    -fx-min-width: 400px;
+    -fx-max-width: 400px;
+}
+
+.login-title {
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.login-subtitle {
+    -fx-text-fill: -text-muted;
+    -fx-font-size: 13px;
+}
+
+.camera-circle {
+    -fx-effect: dropshadow(gaussian, -accent-glow, 16, 0, 0, 0);
+}
+
+.face-status-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 6 14;
+    -fx-background-radius: 20;
+}
+.face-status-label.scanning  { -fx-background-color: rgba(79,142,247,0.2); -fx-text-fill: -accent-light; }
+.face-status-label.detected  { -fx-background-color: rgba(63,185,80,0.2);  -fx-text-fill: -success; }
+.face-status-label.failed    { -fx-background-color: rgba(248,81,73,0.2);  -fx-text-fill: -danger; }
+
+/* ── Progress / Loading ───────────────────────────────────────── */
+.progress-bar {
+    -fx-background-color: -bg-surface;
+    -fx-background-radius: 4;
+}
+.progress-bar > .bar {
+    -fx-background-color: linear-gradient(to right, -accent, -accent-light);
+    -fx-background-radius: 4;
+}
+
+/* ── ScrollPane ───────────────────────────────────────────────── */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: -bg-surface;
+    -fx-background-radius: 4;
+}
+.scroll-bar { -fx-background-color: transparent; }
+
+/* ── Dividers ─────────────────────────────────────────────────── */
+.separator > .line {
+    -fx-border-color: -border;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* ── Dialogs ──────────────────────────────────────────────────── */
+.dialog-pane {
+    -fx-background-color: -bg-card;
+    -fx-border-color: -border;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+}
+.dialog-pane .header-panel {
+    -fx-background-color: -bg-surface;
+    -fx-background-radius: 12 12 0 0;
+}
+.dialog-pane .header-panel .label {
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+.dialog-pane .content.label { -fx-text-fill: -text-secondary; }
+.dialog-pane .button-bar .button {
+    -fx-background-color: -bg-surface;
+    -fx-text-fill: -text-primary;
+    -fx-background-radius: 8;
+    -fx-border-color: -border;
+    -fx-border-radius: 8;
+    -fx-padding: 8 18;
+    -fx-cursor: hand;
+}
+
+/* ── Attendance progress ring (fake via label) ────────────────── */
+.attendance-ring-label {
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+/* ── Tooltip ──────────────────────────────────────────────────── */
+.tooltip {
+    -fx-background-color: -bg-surface;
+    -fx-text-fill: -text-primary;
+    -fx-border-color: -border;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 12px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Registration Wizard — additional styles
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Step connector line */
+.step-connector {
+    -fx-fill: #21293a;
+}
+.step-connector.active {
+    -fx-fill: #4f8ef7;
+}
+
+/* Register card fields wider */
+.register-grid .text-field,
+.register-grid .password-field,
+.register-grid .combo-box {
+    -fx-min-width: 240px;
+    -fx-pref-width: 260px;
+}
+
+/* Face detect badge */
+.face-ok {
+    -fx-background-color: rgba(63,185,80,0.15);
+    -fx-text-fill: #3fb950;
+    -fx-background-radius: 20;
+    -fx-padding: 5 14;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+.face-fail {
+    -fx-background-color: rgba(248,81,73,0.15);
+    -fx-text-fill: #f85149;
+    -fx-background-radius: 20;
+    -fx-padding: 5 14;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+/* Register success card */
+.success-card {
+    -fx-background-color: rgba(63,185,80,0.08);
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(63,185,80,0.25);
+    -fx-border-radius: 12;
+    -fx-padding: 20 32;
+}
+
+/* Tip box */
+.tip-box {
+    -fx-background-color: rgba(79,142,247,0.08);
+    -fx-background-radius: 10;
+    -fx-border-color: rgba(79,142,247,0.2);
+    -fx-border-radius: 10;
+    -fx-padding: 12 16;
+}
