@@ -184,3 +184,4 @@ User ──────────────── Student ──── Depar
 | Apply for leave      | ❌    | ❌      | ✅      |
 | Manage fees          | ✅    | ❌      | View own|
 # FaceRecog
+# FaceRecog
