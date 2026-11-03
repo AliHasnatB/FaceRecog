@@ -185,3 +185,4 @@ User ──────────────── Student ──── Depar
 | Manage fees          | ✅    | ❌      | View own|
 # FaceRecog
 # FaceRecog
+# FaceRecog
